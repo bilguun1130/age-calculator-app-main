@@ -8,6 +8,7 @@ let today = new Date();
 const yearToday = today.getFullYear();
 var counter = 0;
 var myList = [];
+
 function dayValid() {
     return inputDay < 32;
 }
@@ -71,7 +72,6 @@ form.on('submit', (e) => {
                 myList.push("input");
                 $(".valid-all").removeClass("hide");
                 $(".input-container span").addClass("color-red");
-
             }
             else {
                 const todayYear = today.getFullYear();
@@ -90,7 +90,6 @@ form.on('submit', (e) => {
                     var dateAge = todayDay - inputDay;  
                 }  
                 //get days when the current date is greater  
-                    
                 else {  
                     monthAge--;  
                     var dateAge = 31 + todayDay - inputDay;  
@@ -100,13 +99,34 @@ form.on('submit', (e) => {
                     yearAge--;  
                     }  
                 }
-                $(".this-years").text(yearAge);
-                $(".this-months").text(monthAge);
-                $(".this-days").text(dateAge);
+                var animationList = [];
+                var allTogether = [yearAge, monthAge, dateAge];
+                let interval = 2000; 
+                animationList.push($(".this-years"));
+                animationList.push($(".this-months"));
+                animationList.push($(".this-days"));
+                let count = 0;
+                animationList.forEach((valueDisplay) => {
+                    console.log(valueDisplay.text);
+                    
+                    let endValue = allTogether[count];
+                    let startValue = valueDisplay.text() === "--" ? 0 : allTogether[count] - 1;
+                    console.log(startValue);
+                    let duration = Math.floor(interval / endValue);
+                    let counter = setInterval(function () {
+                        startValue ++;
+                        valueDisplay.text(startValue);
+                        if (startValue === endValue) {
+                            clearInterval(counter);
+                        }
+                    }, duration);
+                    count ++;
+                });
                 
+                // $(".this-years").text(yearAge);
+                // $(".this-months").text(monthAge);
+                // $(".this-days").text(dateAge);
             }
-            
         }
     }
-    
 });
