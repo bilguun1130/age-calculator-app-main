@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,400;1,700;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <div class="inputs">
+        <form>
+          <div class="input-field">
+            <div class="input-container">
+              <span>DAY</span>
+              <input type="text"  name="day" id="day" placeholder="DD" desc="DAY" data-error="Please input a valid day" empty-date="Please fill the date" >
+              <p class="hide required-day">This field is required</p>
+              <p class="validity-day hide">Must be a valid day</p>
+              <p class="valid-all hide">Must be a valid date</p>
+            </div>
+            <div class="input-container">
+              <span>MONTH</span> 
+              <input type="text" name="month" id="month" placeholder="MM" desc="MONTH" data-error="Please input a valid month" empty-date="Please fill the month" >
+              <p class="hide required-month">This field is required</p>
+              <p class="validity-month hide">Must be a valid month</p>
+            </div>
+              <div class="input-container">
+                <span>YEAR</span>
+                <input type="text" name="year" id="year" placeholder="YYYY" desc="YEAR" data-error="Please input a valid year" empty-date="Please fill the year" >
+                <p class="hide required-year">This field is required</p>
+                <p class="validity-year hide">Must be in the past</p>
+              </div>
+          </div>
+          <div class="bottom-part-of-input">
+            <div class="line"></div>
+            <button type="submit">
+              <img src="./assets/images/icon-arrow.svg" alt="icon of the button">
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="result">
+        <h2 class="numbers"><span class="after-button this-years">--</span> years</h2>
+        <h2 class="numbers"><span class="after-button this-months">--</span> months</h2>
+        <h2 class="numbers"><span class="after-button this-days">--</span> days</h2>
+      </div>
+      
+
+    </article>
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Bilguun Purevdorj</a>.
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
